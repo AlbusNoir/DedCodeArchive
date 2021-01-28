@@ -1,0 +1,45 @@
+"""
+    Utilizing operator overloads to create a vector
+"""
+
+
+class Vector:
+    """vector in multi dimensional space"""
+
+    def __init__(self, d):
+        """create d-dimensional vector"""
+        self._coords = [0] * d
+
+    def __len__(self):
+        """uses the __len__ operator to return dimension of vector"""
+        return len(self._coords)
+
+    def __getitem__(self, j):
+        """uses __getitem__ operator to return j-th coordinate of vector"""
+        return self._coords[j]
+
+    def __setitem__(self, j, val):
+        """usses __setitem__ operator to set j-th cord of vector to given value"""
+        self._coords[j] = val
+
+    def __add__(self, other):
+        """uses __add__ operator to sum two vectors"""
+        if len(self) != len(other):
+            # relies on __len__
+            raise ValueError('Dimensions must agree')
+        result = Vector(len(self))  # start with vector of zeros
+        for j in range(len(self)):
+            result[j] = self[j] + other[j]
+        return result
+
+    def __eq__(self, other):
+        """uses __eq__ operator to return True if vector has same cords as other"""
+        return self._coords == other._coords
+
+    def __ne__(self, other):
+        """uses __ne__ operator to return True if cords not equal"""
+        return not self == other  # relies on existing __eq__ function above
+
+    def __str__(self):
+        """uses __str__ to produce string representation of vector"""
+        return '<' + str(self._coords)[1:-1] + '>'  # adapt list representation

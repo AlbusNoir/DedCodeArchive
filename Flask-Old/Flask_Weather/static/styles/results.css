@@ -1,0 +1,26 @@
+#weatherResults {
+    background-color: #417690;
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 24px;
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+#goBack {
+    color: white;
+    background-color: #222222;
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+}
+
+#goBack:hover {
+    cursor: pointer;
+}

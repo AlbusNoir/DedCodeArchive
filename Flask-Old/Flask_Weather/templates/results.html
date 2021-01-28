@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Weather</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/results.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="weatherResults">
+    <h2>Weather in {{  location }}</h2>
+    {% if request.form["options"] == "fahrenheit" %}
+    <h3>{{ temp }} &#176;F</h3>
+    {% endif %}
+    {% if request.form["options"] == "celcius" %}
+    <h3>{{ temp_celcius }} &#176;C</h3>
+    {% endif %}
+    <h3>Conditions: {{ weather_desc }} | {{ weather_detail }}</h3>
+    {% if request.form["options"] == "fahrenheit" %}
+    <h4>Feels like: {{ feels_like }} &#176;F</h4>
+    {% endif %}
+    {% if request.form["options"] == "celcius" %}
+    <h4>{{ feels_conv }} &#176;C</h4>
+    {% endif %}
+    <h4>Humidity: {{ humidity }} %</h4><br>
+    <a id="goBack" href="{{ url_for('weather_dashboard') }}"><-- Back</a>
+</div>
+</body>
+</html>
